@@ -17,7 +17,7 @@
 
 /** @enum {string} */
 const strings = {
-  OUTLINE_PATH_SELECTOR: '.mdc-text-field__outline-path',
+  PATH_SELECTOR: '.mdc-text-field__outline-path',
   IDLE_OUTLINE_SELECTOR: '.mdc-text-field__idle-outline',
 };
 

@@ -50,6 +50,26 @@ class MDCTextFieldOutlineFoundation extends MDCFoundation {
   constructor(adapter = /** @type {!MDCTextFieldOutlineAdapter} */ ({})) {
     super(Object.assign(MDCTextFieldOutlineFoundation.defaultAdapter, adapter));
   }
+
+  /**
+   * Updates the SVG path of the focused outline.
+   */
+  updateSvgPath(width, height, labelWidth, radius) {
+    const floatingLabelPadding = 6;
+    const floatingLabelWidth = labelWidth + floatingLabelPadding;
+    const path = 'M' + labelWidth + ',' + 1
+       + 'h' + (width - radius - labelWidth - 2)
+       + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + radius
+       + 'v' + (height - 2.5 * radius)
+       + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + radius
+       + 'h' + (-width + 3 * radius)
+       + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + -radius
+       + 'v' + (-height + 2.5 * radius)
+       + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + -radius
+       + 'h' + 2;
+
+    this.adapter_.setOutlinePathAttr(path);
+  }
 }
 
 export default MDCTextFieldOutlineFoundation;

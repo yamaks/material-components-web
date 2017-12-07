@@ -150,6 +150,21 @@ class MDCTextFieldAdapter {
    * @return {?Element|?NativeInputType}
    */
   getNativeInput() {}
+
+  /**
+   * Deregisters an event listener on the bottom line element for a given event.
+   */
+  getWidthAndHeight() {}
+
+  /**
+   * Deregisters an event listener on the bottom line element for a given event.
+   */
+  getComputedLabelWidth() {}
+
+  /**
+   * Deregisters an event listener on the bottom line element for a given event.
+   */
+  getCornerRadius() {}
 }
 
 export {MDCTextFieldAdapter, NativeInputType, FoundationMapType};

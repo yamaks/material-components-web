@@ -17,6 +17,7 @@
 
 import MDCComponent from '@material/base/component';
 
+import {cssClasses, strings} from './constants';
 import MDCTextFieldOutlineAdapter from './adapter';
 import MDCTextFieldOutlineFoundation from './foundation';
 
@@ -45,6 +46,10 @@ class MDCTextFieldOutline extends MDCComponent {
    */
   getDefaultFoundation() {
     return new MDCTextFieldOutlineFoundation(/** @type {!MDCTextFieldOutlineAdapter} */ (Object.assign({
+      setOutlinePathAttr: (value) => {
+        const path = this.root_.querySelector(strings.PATH_SELECTOR);
+        path.setAttribute('d', value);
+      },
     })));
   }
 }

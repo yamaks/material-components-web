@@ -28,6 +28,11 @@
  * @record
  */
 class MDCTextFieldOutlineAdapter {
+  /**
+   * Adds a class to the helper text element.
+   * @param {string} value
+   */
+  setOutlinePathAttr(value) {}
 }
 
 export default MDCTextFieldOutlineAdapter;
