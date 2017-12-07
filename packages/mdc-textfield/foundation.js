@@ -20,6 +20,8 @@ import {MDCTextFieldAdapter, NativeInputType, FoundationMapType} from './adapter
 import MDCTextFieldBottomLineFoundation from './bottom-line/foundation';
 // eslint-disable-next-line no-unused-vars
 import MDCTextFieldHelperTextFoundation from './helper-text/foundation';
+// eslint-disable-next-line no-unused-vars
+import MDCTextFieldOutlineFoundation from './outline/foundation';
 import {cssClasses, strings} from './constants';
 
 
@@ -74,6 +76,8 @@ class MDCTextFieldFoundation extends MDCFoundation {
     this.bottomLine_ = foundationMap.bottomLine;
     /** @type {!MDCTextFieldHelperTextFoundation|undefined} */
     this.helperText_ = foundationMap.helperText;
+    /** @type {!MDCTextFieldOutlineFoundation|undefined} */
+    this.outline_ = foundationMap.outline;
 
     /** @private {boolean} */
     this.isFocused_ = false;

@@ -26,6 +26,7 @@ import MDCTextFieldFoundation from './foundation';
 /* eslint-disable no-unused-vars */
 import {MDCTextFieldBottomLine, MDCTextFieldBottomLineFoundation} from './bottom-line';
 import {MDCTextFieldHelperText, MDCTextFieldHelperTextFoundation} from './helper-text';
+import {MDCTextFieldOutline, MDCTextFieldOutlineFoundation} from './outline';
 /* eslint-enable no-unused-vars */
 
 /**
@@ -44,6 +45,8 @@ class MDCTextField extends MDCComponent {
     this.label_;
     /** @type {?MDCRipple} */
     this.ripple;
+    /** @private {?MDCTextFieldOutline} */
+    this.outline_;
     /** @private {?MDCTextFieldBottomLine} */
     this.bottomLine_;
     /** @private {?MDCTextFieldHelperText} */
@@ -82,11 +85,13 @@ class MDCTextField extends MDCComponent {
       const foundation = new MDCRippleFoundation(adapter);
       this.ripple = rippleFactory(this.root_, foundation);
     };
-    if (!this.root_.classList.contains(cssClasses.TEXTAREA)) {
-      const bottomLineElement = this.root_.querySelector(strings.BOTTOM_LINE_SELECTOR);
-      if (bottomLineElement) {
-        this.bottomLine_ = bottomLineFactory(bottomLineElement);
-      }
+    const bottomLineElement = this.root_.querySelector(strings.BOTTOM_LINE_SELECTOR);
+    if (bottomLineElement) {
+      this.bottomLine_ = bottomLineFactory(bottomLineElement);
+    };
+    const outlineElement = this.root_.querySelector(strings.OUTLINE_SELECTOR);
+    if (outlineElement) {
+      this.outline_ = new MDCTextFieldOutline(outlineElement);
     };
     if (this.input_.hasAttribute(strings.ARIA_CONTROLS)) {
       const helperTextElement = document.getElementById(this.input_.getAttribute(strings.ARIA_CONTROLS));
@@ -108,6 +113,9 @@ class MDCTextField extends MDCComponent {
     }
     if (this.helperText_) {
       this.helperText_.destroy();
+    }
+    if (this.outline_) {
+      this.outline_.destroy();
     }
     super.destroy();
   }
@@ -227,6 +235,7 @@ class MDCTextField extends MDCComponent {
     return {
       bottomLine: this.bottomLine_ ? this.bottomLine_.foundation : undefined,
       helperText: this.helperText_ ? this.helperText_.foundation : undefined,
+      outline: this.outline_ ? this.outline_.foundation : undefined,
     };
   }
 }
