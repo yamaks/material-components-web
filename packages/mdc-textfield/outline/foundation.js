@@ -57,8 +57,8 @@ class MDCTextFieldOutlineFoundation extends MDCFoundation {
   updateSvgPath(width, height, labelWidth, radius) {
     const floatingLabelPadding = 6;
     const floatingLabelWidth = labelWidth + floatingLabelPadding;
-    const path = 'M' + labelWidth + ',' + 1
-       + 'h' + (width - radius - labelWidth - 2)
+    const path = 'M' + floatingLabelWidth + ',' + 1
+       + 'h' + (width - radius - floatingLabelWidth - 2)
        + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + radius
        + 'v' + (height - 2.5 * radius)
        + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + radius
