@@ -151,6 +151,10 @@
     border: none;
     background-color: transparent;
     z-index: 3;
+
+    &:hover ~ .mdc-text-field__idle-outline {
+      border: 1px solid $mdc-text-field-outlined-hover-border;
+    }
   }
 
   // stylelint-disable plugin/selector-bem-pattern

@@ -27,13 +27,15 @@
   left: 0;
   width: calc(100% - 4px);
   height: calc(100% - 4px);
-  transition: opacity 200ms ease;
-  border: 2px solid $mdc-text-field-outlined-border;
+  transition: opacity 100ms ease;
+  border: 1px solid $mdc-text-field-outlined-idle-border;
   opacity: 1;
   z-index: 2;
 }
 
 .mdc-text-field__outline {
+  @include mdc-theme-prop(color, primary);
+
   position: absolute;
   top: 0;
   left: 0;
@@ -42,10 +44,6 @@
   transition: opacity 250ms ease;
   opacity: 0;
   z-index: 2;
-
-  &--visible {
-    opacity: 1;
-  }
 }
 
 .mdc-text-field__outline-path {
