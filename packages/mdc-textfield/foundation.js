@@ -105,12 +105,6 @@ class MDCTextFieldFoundation extends MDCFoundation {
     if (this.getNativeInput_().value) {
       this.adapter_.addClassToLabel(MDCTextFieldFoundation.cssClasses.LABEL_FLOAT_ABOVE);
     }
-    if (this.outline_) {
-      const {width, height} = this.adapter_.getWidthAndHeight();
-      const labelWidth = this.adapter_.getComputedLabelWidth();
-      const radius = this.adapter_.getCornerRadius();
-      this.outline_.updateSvgPath(width, height, labelWidth, radius);
-    }
 
     this.adapter_.registerInputInteractionHandler('focus', this.inputFocusHandler_);
     this.adapter_.registerInputInteractionHandler('blur', this.inputBlurHandler_);
@@ -166,6 +160,12 @@ class MDCTextFieldFoundation extends MDCFoundation {
    */
   activateFocus() {
     const {FOCUSED, LABEL_FLOAT_ABOVE, LABEL_SHAKE} = MDCTextFieldFoundation.cssClasses;
+    if (this.outline_) {
+      const {width, height} = this.adapter_.getWidthAndHeight();
+      const labelWidth = this.adapter_.getComputedLabelWidth();
+      const radius = this.adapter_.getCornerRadius();
+      this.outline_.updateSvgPath(width, height, labelWidth, radius);
+    }
     this.adapter_.addClass(FOCUSED);
     if (this.bottomLine_) {
       this.bottomLine_.activate();

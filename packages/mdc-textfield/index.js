@@ -199,8 +199,7 @@ class MDCTextField extends MDCComponent {
         },
         getComputedLabelWidth: (evtType, handler) => {
           const labelElement = this.root_.querySelector(strings.LABEL_SELECTOR);
-          const labelScale = .75;
-          return labelElement.offsetWidth * labelScale;
+          return labelElement.offsetWidth;
         },
         getCornerRadius: (evtType, handler) => {
           return 4;

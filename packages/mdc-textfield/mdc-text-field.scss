@@ -146,7 +146,7 @@
 
   .mdc-text-field__input {
     display: flex;
-    width: 100%;
+    height: 30px;
     padding: 12px;
     border: none;
     background-color: transparent;
@@ -164,8 +164,8 @@
 
     &--float-above {
       @include mdc-theme-prop(color, primary);
-
-      transform: translateY(-124%) scale(.75, .75);
+  
+      transform: scale(.85) translate(-10px, -30px);
 
       &.mdc-text-field__label--shake {
         animation: invalid-shake-float-above-outlined 250ms 1;
@@ -179,12 +179,6 @@
 
   &.mdc-text-field--focused .mdc-text-field__outline {
     opacity: 1;
-  }
-
-  .mdc-text-field__label--float-above {
-    @include mdc-theme-prop(color, primary);
-
-    transform: scale(.85) translate(-10px, -30px);
   }
 
   .mdc-text-field__label--float-above ~ .mdc-text-field__idle-outline {
