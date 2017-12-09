@@ -44,12 +44,12 @@
   transition: opacity 250ms ease;
   opacity: 0;
   z-index: 2;
-}
-
-.mdc-text-field__outline-path {
-  @include mdc-theme-prop(stroke, primary);
-
-  stroke-width: 2px;
-  transition: opacity 250ms ease;
-  fill: transparent;
+  
+  & .mdc-text-field__outline-path {
+    @include mdc-theme-prop(stroke, primary);
+  
+    stroke-width: 2px;
+    transition: opacity 250ms ease;
+    fill: transparent;
+  }
 }

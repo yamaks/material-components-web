@@ -152,14 +152,57 @@
 
       <section class="example">
         <h2>Outlined Text Field</h2>
-        <div id="tf-outlined-example" class="mdc-text-field mdc-text-field--outlined">
-          <input type="text" id="tf-outlined" class="mdc-text-field__input">
-          <label for="tf-outlined" class="mdc-text-field__label">Your Name</label>
-          <svg class="mdc-text-field__outline">
-            <path class="mdc-text-field__outline-path"/>
-          </svg>
-          <div class="mdc-text-field__idle-outline"></div>
+        <div id="demo-tf-outlined-wrapper">
+          <div id="tf-outlined-example" class="mdc-text-field mdc-text-field--outlined" data-demo-no-auto-js>
+            <input type="text" id="tf-outlined" class="mdc-text-field__input">
+            <label for="tf-outlined" class="mdc-text-field__label">Your Name</label>
+            <svg class="mdc-text-field__outline">
+              <path class="mdc-text-field__outline-path"/>
+            </svg>
+            <div class="mdc-text-field__idle-outline"></div>
+          </div>
+          <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg"
+            id="name-validation-msg">
+            Must be at least 8 characters
+          </p>
         </div>
+        <div>
+          <input id="outlined-disable" type="checkbox">
+          <label for="outlined-disable">Disabled</label>
+        </div>
+        <div>
+          <input id="outlined-rtl" type="checkbox">
+          <label for="outlined-rtl">RTL</label>
+        </div>
+        <div>
+          <input id="outlined-dense" type="checkbox">
+          <label for="outlined-dense">Dense</label>
+        </div>
+        <script>
+          setTimeout(function() {
+            var tfEl = document.getElementById('tf-outlined-example');
+            var tf = new mdc.textField.MDCTextField(tfEl);
+            var wrapper = document.getElementById('demo-tf-outlined-wrapper');
+
+            document.getElementById('outlined-disable').addEventListener('change', function(evt) {
+              tf.disabled = evt.target.checked;
+            });
+
+            document.getElementById('outlined-rtl').addEventListener('change', function(evt) {
+              if (evt.target.checked) {
+                wrapper.setAttribute('dir', 'rtl');
+              } else {
+                wrapper.removeAttribute('dir');
+              }
+              // tf.ripple.layout();
+            });
+
+            document.getElementById('outlined-dense').addEventListener('change', function(evt) {
+              tfEl.classList[evt.target.checked ? 'add' : 'remove']('mdc-text-field--dense');
+              // tf.ripple.layout();
+            });
+          }, 0);
+        </script>
       </section>
 
       <section class="example">

@@ -62,7 +62,7 @@ class MDCTextFieldOutlineFoundation extends MDCFoundation {
        + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + radius
        + 'v' + (height - 3 * radius)
        + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + radius
-       + 'h' + (-width + 2.8 * radius)
+       + 'h' + (-width + 2.7 * radius)
        + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + -radius
        + 'v' + (-height + 3 * radius)
        + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + -radius
