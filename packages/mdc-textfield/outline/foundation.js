@@ -55,10 +55,8 @@ class MDCTextFieldOutlineFoundation extends MDCFoundation {
    * Updates the SVG path of the focused outline.
    */
   updateSvgPath(width, height, labelWidth, radius) {
-    const floatingLabelPadding = 6;
-    const floatingLabelWidth = labelWidth + floatingLabelPadding;
-    const path = 'M' + floatingLabelWidth + ',' + 1
-       + 'h' + (width - radius - floatingLabelWidth - 2)
+    const path = 'M' + labelWidth + ',' + 1
+       + 'h' + (width - radius - labelWidth - 2)
        + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + radius
        + 'v' + (height - 3 * radius)
        + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + radius
@@ -66,7 +64,7 @@ class MDCTextFieldOutlineFoundation extends MDCFoundation {
        + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + -radius
        + 'v' + (-height + 3 * radius)
        + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + -radius
-       + 'h' + 2;
+       + 'h' + 6;
 
     this.adapter_.setOutlinePathAttr(path);
   }
