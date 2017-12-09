@@ -160,6 +160,8 @@
 
   // stylelint-disable plugin/selector-bem-pattern
   .mdc-text-field__label {
+    @include mdc-rtl-reflexive-position(left, 16px);
+
     position: absolute;
     bottom: 20px;
     left: 16px;

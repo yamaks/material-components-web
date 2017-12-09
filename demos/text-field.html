@@ -175,10 +175,6 @@
           <input id="outlined-rtl" type="checkbox">
           <label for="outlined-rtl">RTL</label>
         </div>
-        <div>
-          <input id="outlined-dense" type="checkbox">
-          <label for="outlined-dense">Dense</label>
-        </div>
         <script>
           setTimeout(function() {
             var tfEl = document.getElementById('tf-outlined-example');
@@ -195,11 +191,6 @@
               } else {
                 wrapper.removeAttribute('dir');
               }
-              // tf.ripple.layout();
-            });
-
-            document.getElementById('outlined-dense').addEventListener('change', function(evt) {
-              tfEl.classList[evt.target.checked ? 'add' : 'remove']('mdc-text-field--dense');
               // tf.ripple.layout();
             });
           }, 0);

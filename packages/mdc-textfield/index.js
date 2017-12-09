@@ -202,7 +202,12 @@ class MDCTextField extends MDCComponent {
           return labelElement.offsetWidth;
         },
         getCornerRadius: (evtType, handler) => {
-          return 4;
+          const idleOutlineElement = this.root_.querySelector(strings.IDLE_OUTLINE_SELECTOR);
+          if (idleOutlineElement) {
+            const radius = window.getComputedStyle(idleOutlineElement).getPropertyValue('border-radius');
+            return parseFloat(radius);
+          }
+          return 0;
         },
       },
       this.getInputAdapterMethods_(),
