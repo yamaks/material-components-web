@@ -157,6 +157,10 @@ class MDCTextField extends MDCComponent {
     this.foundation_.setHelperTextContent(content);
   }
 
+  layout() {
+    this.foundation_.calculateOutline();
+  }
+
   /**
    * @return {!MDCTextFieldFoundation}
    */
@@ -197,18 +201,17 @@ class MDCTextField extends MDCComponent {
             height: this.root_.offsetHeight,
           };
         },
-        getComputedLabelWidth: (evtType, handler) => {
+        getLabelWidth: () => {
           const labelElement = this.root_.querySelector(strings.LABEL_SELECTOR);
           return labelElement.offsetWidth;
         },
-        getCornerRadius: (evtType, handler) => {
+        getIdleOutlineStyleValue: (property) => {
           const idleOutlineElement = this.root_.querySelector(strings.IDLE_OUTLINE_SELECTOR);
           if (idleOutlineElement) {
-            const radius = window.getComputedStyle(idleOutlineElement).getPropertyValue('border-radius');
-            return parseFloat(radius);
+            return window.getComputedStyle(idleOutlineElement).getPropertyValue(property);
           }
-          return 0;
         },
+        isRtl: () => getComputedStyle(this.root_).getPropertyValue('direction') === 'rtl',
       },
       this.getInputAdapterMethods_(),
       this.getIconAdapterMethods_())),

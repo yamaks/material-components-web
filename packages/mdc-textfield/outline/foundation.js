@@ -54,17 +54,31 @@ class MDCTextFieldOutlineFoundation extends MDCFoundation {
   /**
    * Updates the SVG path of the focused outline.
    */
-  updateSvgPath(width, height, labelWidth, radius) {
-    const path = 'M' + labelWidth + ',' + 1
-       + 'h' + (width - radius - labelWidth - 2)
-       + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + radius
-       + 'v' + (height - 3 * radius)
-       + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + radius
-       + 'h' + (-width + 2.7 * radius)
-       + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + -radius
-       + 'v' + (-height + 3 * radius)
-       + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + -radius
-       + 'h' + 6;
+  updateSvgPath(width, height, labelWidth, radius, isRtl = false) {
+    let path;
+    if (!isRtl) {
+      path = 'M' + labelWidth + ',' + 1
+        + 'h' + (width - radius - labelWidth - 2)
+        + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + radius
+        + 'v' + (height - 3 * radius)
+        + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + radius
+        + 'h' + (-width + 2.7 * radius)
+        + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + -radius
+        + 'v' + (-height + 3 * radius)
+        + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + -radius
+        + 'h' + 6;
+    } else {
+      path = 'M' + (width - radius - 6) + ',' + 1
+        + 'h' + 4
+        + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + radius
+        + 'v' + (height - 3 * radius)
+        + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + radius
+        + 'h' + (-width + 2.7 * radius)
+        + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + -radius
+        + 'v' + (-height + 3 * radius)
+        + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + -radius
+        + 'h' + (width - radius - labelWidth);
+    }
 
     this.adapter_.setOutlinePathAttr(path);
   }

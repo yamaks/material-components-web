@@ -155,17 +155,22 @@ class MDCTextFieldFoundation extends MDCFoundation {
     }
   }
 
+  calculateOutline() {
+    if (this.outline_) {
+      const {width, height} = this.adapter_.getWidthAndHeight();
+      const labelWidth = this.adapter_.getLabelWidth();
+      const radius = parseFloat(this.adapter_.getIdleOutlineStyleValue('border-radius'));
+      const isRtl = this.adapter_.isRtl();
+      this.outline_.updateSvgPath(width, height, labelWidth, radius, isRtl);
+    }
+  }
+
   /**
    * Activates the text field focus state.
    */
   activateFocus() {
     const {FOCUSED, LABEL_FLOAT_ABOVE, LABEL_SHAKE} = MDCTextFieldFoundation.cssClasses;
-    if (this.outline_) {
-      const {width, height} = this.adapter_.getWidthAndHeight();
-      const labelWidth = this.adapter_.getComputedLabelWidth();
-      const radius = this.adapter_.getCornerRadius();
-      this.outline_.updateSvgPath(width, height, labelWidth, radius);
-    }
+    this.calculateOutline();
     this.adapter_.addClass(FOCUSED);
     if (this.bottomLine_) {
       this.bottomLine_.activate();
