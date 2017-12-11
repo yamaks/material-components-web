@@ -144,9 +144,7 @@
 .mdc-text-field--outlined {
   .mdc-text-field__outline {
     @include mdc-ripple-surface;
-    @include mdc-states-base-color(black);
-    @include mdc-states-focus-opacity(.04);
-    @include mdc-states-press-opacity(.06);
+    @include mdc-states(text-primary-on-light);
     @include mdc-ripple-radius;
     @include mdc-text-field-outlined-corner-radius($mdc-text-field-border-radius);
 

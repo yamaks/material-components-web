@@ -60,22 +60,22 @@ class MDCTextFieldOutlineFoundation extends MDCFoundation {
       path = 'M' + labelWidth + ',' + 1
         + 'h' + (width - radius - labelWidth - 2)
         + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + radius
-        + 'v' + (height - 3 * radius)
+        + 'v' + (height - 2.7 * radius)
         + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + radius
         + 'h' + (-width + 2.7 * radius)
         + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + -radius
-        + 'v' + (-height + 3 * radius)
+        + 'v' + (-height + 2.7 * radius)
         + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + -radius
         + 'h' + 6;
     } else {
       path = 'M' + (width - radius - 6) + ',' + 1
         + 'h' + 4
         + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + radius
-        + 'v' + (height - 3 * radius)
+        + 'v' + (height - 2.7 * radius)
         + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + radius
         + 'h' + (-width + 2.7 * radius)
         + 'a' + radius + ',' + radius + ' 0 0 1 ' + -radius + ',' + -radius
-        + 'v' + (-height + 3 * radius)
+        + 'v' + (-height + 2.7 * radius)
         + 'a' + radius + ',' + radius + ' 0 0 1 ' + radius + ',' + -radius
         + 'h' + (width - radius - labelWidth);
     }
