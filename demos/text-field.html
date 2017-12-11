@@ -157,9 +157,11 @@
             <input required pattern=".{8,}" type="text" id="tf-outlined-input" class="mdc-text-field__input"
                    aria-controls="name-validation-message">
             <label for="tf-outlined-input" class="mdc-text-field__label">Your Name</label>
-            <svg class="mdc-text-field__outline">
-              <path class="mdc-text-field__outline-path"/>
-            </svg>
+            <div class="mdc-text-field__outline">
+              <svg>
+                <path class="mdc-text-field__outline-path"/>
+              </svg>
+            </div>
             <div class="mdc-text-field__idle-outline"></div>
           </div>
           <p class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg"
@@ -192,7 +194,7 @@
                 wrapper.removeAttribute('dir');
               }
               tf.layout();
-              // tf.ripple.layout();
+              tf.ripple.layout();
             });
           }, 0);
         </script>

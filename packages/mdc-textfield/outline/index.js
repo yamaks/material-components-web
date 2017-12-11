@@ -41,6 +41,11 @@ class MDCTextFieldOutline extends MDCComponent {
     return this.foundation_;
   }
 
+  // TODO: remove this and move ripple constructor to here
+  get root() {
+    return this.root_;
+  }
+
   /**
    * @return {!MDCTextFieldOutlineFoundation}
    */

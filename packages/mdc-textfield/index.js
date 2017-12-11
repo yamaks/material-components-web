@@ -84,15 +84,24 @@ class MDCTextField extends MDCComponent {
       });
       const foundation = new MDCRippleFoundation(adapter);
       this.ripple = rippleFactory(this.root_, foundation);
-    };
+    }
     const bottomLineElement = this.root_.querySelector(strings.BOTTOM_LINE_SELECTOR);
     if (bottomLineElement) {
       this.bottomLine_ = bottomLineFactory(bottomLineElement);
-    };
+    }
     const outlineElement = this.root_.querySelector(strings.OUTLINE_SELECTOR);
     if (outlineElement) {
       this.outline_ = new MDCTextFieldOutline(outlineElement);
-    };
+      const MATCHES = getMatchesProperty(HTMLElement.prototype);
+      const adapter = Object.assign(MDCRipple.createAdapter(this.outline_), {
+        isSurfaceActive: () => this.input_[MATCHES](':active'),
+        registerInteractionHandler: (type, handler) => this.input_.addEventListener(type, handler),
+        deregisterInteractionHandler: (type, handler) => this.input_.removeEventListener(type, handler),
+      });
+      const foundation = new MDCRippleFoundation(adapter);
+      // TODO(move this to outline/index.js)
+      this.ripple = rippleFactory(this.outline_.root, foundation);
+    }
     if (this.input_.hasAttribute(strings.ARIA_CONTROLS)) {
       const helperTextElement = document.getElementById(this.input_.getAttribute(strings.ARIA_CONTROLS));
       if (helperTextElement) {
@@ -101,7 +110,7 @@ class MDCTextField extends MDCComponent {
     }
     if (!this.root_.classList.contains(cssClasses.TEXT_FIELD_ICON)) {
       this.icon_ = this.root_.querySelector(strings.ICON_SELECTOR);
-    };
+    }
   }
 
   destroy() {

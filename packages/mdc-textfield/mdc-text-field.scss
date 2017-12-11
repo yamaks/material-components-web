@@ -142,6 +142,17 @@
 }
 
 .mdc-text-field--outlined {
+  .mdc-text-field__outline {
+    @include mdc-ripple-surface;
+    @include mdc-states-base-color(black);
+    @include mdc-states-focus-opacity(.04);
+    @include mdc-states-press-opacity(.06);
+    @include mdc-ripple-radius;
+    @include mdc-text-field-outlined-corner-radius($mdc-text-field-border-radius);
+
+    overflow: hidden;
+  }
+  
   height: 56px;
   border: none;
 
@@ -201,6 +212,10 @@
     
     .mdc-text-field__input {
       border-bottom: none;
+    }
+
+    .mdc-text-field__outline {
+      background-color: $mdc-text-field-box-disabled-background; 
     }
 
     .mdc-text-field__outline-path {

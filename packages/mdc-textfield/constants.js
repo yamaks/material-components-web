@@ -37,6 +37,7 @@ const cssClasses = {
   LABEL_FLOAT_ABOVE: 'mdc-text-field__label--float-above',
   LABEL_SHAKE: 'mdc-text-field__label--shake',
   BOX: 'mdc-text-field--box',
+  OUTLINED: 'mdc-text-field--outlined',
   TEXT_FIELD_ICON: 'mdc-text-field__icon',
   TEXTAREA: 'mdc-text-field--textarea',
 };
