@@ -214,19 +214,13 @@
       border-bottom: none;
     }
 
-    .mdc-text-field__outline {
-      background-color: $mdc-text-field-box-disabled-background; 
-    }
-
     .mdc-text-field__outline-path {
-      stroke: $mdc-text-field-disabled-border-on-light;
+      stroke: $mdc-text-field-outlined-disabled-border;
       stroke-width: 1px;
-      stroke-dasharray: 1, 1;
     }
 
     .mdc-text-field__idle-outline {
-      border: 1px dotted $mdc-text-field-disabled-border-on-light;
-      background-color: $mdc-text-field-box-disabled-background;
+      border-color: $mdc-text-field-outlined-disabled-border;
     }
 
     .mdc-text-field__label {
