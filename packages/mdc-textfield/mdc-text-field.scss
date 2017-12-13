@@ -144,7 +144,11 @@
 .mdc-text-field--outlined {
   .mdc-text-field__outline {
     @include mdc-ripple-surface;
-    @include mdc-states(text-primary-on-light);
+    @include mdc-states-base-color(black);
+    @include mdc-states-hover-opacity(.04);
+    @include mdc-states-focus-opacity(.08);
+    @include mdc-states-press-opacity(.12);
+    // @include mdc-states(text-primary-on-light);
     @include mdc-ripple-radius;
     @include mdc-text-field-outlined-corner-radius($mdc-text-field-border-radius);
 
@@ -204,6 +208,10 @@
     opacity: 1;
   }
   // stylelint-enable plugin/selector-bem-pattern
+
+  &:not(.mdc-text-field--focused) .mdc-text-field__outline-path {
+    stroke-width: 1px;
+  }
 
   &.mdc-text-field--disabled {
     @include mdc-theme-prop(color, $mdc-text-field-light-placeholder);
