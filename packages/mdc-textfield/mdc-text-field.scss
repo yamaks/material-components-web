@@ -707,18 +707,19 @@
 
 .mdc-text-field:not(.mdc-text-field--upgraded) {
   &.mdc-text-field--outlined {
-    @include mdc-text-field-outlined-corner-radius($mdc-text-field-border-radius);
+    height: 56px;
 
-    border: 1px solid $mdc-text-field-outlined-idle-border;
-    overflow: hidden;
+    .mdc-text-field__input{
+      @include mdc-text-field-outlined-corner-radius($mdc-text-field-border-radius);
 
-    .mdc-text-field__input {
-      border: none;
-    }
+      height: 100%;
+      padding: 0 0 0 12px;
+      border: 1px solid $mdc-text-field-outlined-idle-border;
+      transition: mdc-text-field-transition(border);
 
-    &::before,
-    &::after {
-      border-radius: 0;
+      &:hover, &:focus {
+        border-color: $mdc-text-field-outlined-hover-border;
+      }
     }
   }
 
