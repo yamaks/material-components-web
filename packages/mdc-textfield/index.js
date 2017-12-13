@@ -99,8 +99,7 @@ class MDCTextField extends MDCComponent {
         deregisterInteractionHandler: (type, handler) => this.input_.removeEventListener(type, handler),
       });
       const foundation = new MDCRippleFoundation(adapter);
-      // TODO(move this to outline/index.js)
-      this.ripple = rippleFactory(this.outline_.root, foundation);
+      this.ripple = this.outline_.createRipple(rippleFactory, foundation);
     }
     if (this.input_.hasAttribute(strings.ARIA_CONTROLS)) {
       const helperTextElement = document.getElementById(this.input_.getAttribute(strings.ARIA_CONTROLS));
